@@ -1,14 +1,19 @@
+@import vars
 @import cover
 @import index
 @import months
 @import year
 
 @page
-    width: 15.6cm
-    height: 20.9cm
-    
-body 
-    bg-color: #eaeaea 
-    color: blue 
+    size: 156mm 209mm
+    margin: 0mm
+body  
+    bg-color: #eaeaea  
+    max-width: $pagewidth
+    max-height: $pageheight    
+    color: black
+    font-family: "KievitOT-Medium", sans-serif
     font-size: 14px
-    line-height: 22px
+    line-height: 22px 
+.page-break 
+    page-break-before: always    

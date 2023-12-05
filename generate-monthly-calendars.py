@@ -41,9 +41,8 @@ def generate_calendar_html(startyear, startmonth, startday, howmanymonths):
         month_name = month_names[current_month - 1]
         month_calendar = cal.monthdatescalendar(current_year, current_month)
 
-        html = f"<html><head><title>{month_name} {current_year}</title></head><body>"
-        html += f"<h2>{month_name} {current_year}</h2>"
-        html += "<table border='1'><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>"
+        html = f"<h2>{month_name} {current_year}</h2>"
+        html += "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>"
 
         for week in month_calendar:
             html += "<tr>"
@@ -54,7 +53,7 @@ def generate_calendar_html(startyear, startmonth, startday, howmanymonths):
                     html += "<td></td>"
             html += "</tr>"
 
-        html += "</table></body></html>"
+        html += "</table>"
 
         # Save the generated HTML to a file
         file_name = f"month_{startmonth + i}.html"

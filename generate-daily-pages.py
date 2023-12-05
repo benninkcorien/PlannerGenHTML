@@ -10,29 +10,29 @@ start_date = datetime(startyear, startmonth, 1)
 end_date = start_date + relativedelta(months=howmanymonths) - timedelta(days=1)
 # Set up Jinja environment
 env = Environment(loader=FileSystemLoader("templates"))
-template = env.get_template("05daily/day.html")
+template = env.get_template("05daily/day.jinja")
 
 
 current_date = start_date
 while current_date <= end_date:
     # Format date for filename
-    file_name = current_date.strftime("%Y-%m-%d-%A-%B.html")
+    file_name = current_date.strftime("%Y-%m-%d.html")
 
     # Format dates for previous and next buttons
-    prev_date = (current_date - timedelta(days=1)).strftime("%Y-%m-%d-%A-%B.html")
-    next_date = (current_date + timedelta(days=1)).strftime("%Y-%m-%d-%A-%B.html")
+    prev_date = (current_date - timedelta(days=1)).strftime("%Y-%m-%d.html")
+    next_date = (current_date + timedelta(days=1)).strftime("%Y-%m-%d.html")
 
     # Render the template with the current date
     rendered = template.render(
         current_date=current_date.strftime("%Y-%m-%d"),
         current_day=current_date.strftime("%A"),
         current_month=current_date.strftime("%B"),
-        prev_link=prev_date,
-        next_link=next_date,
+        prev_link=f"daily-{prev_date}",
+        next_link=f"daily-{next_date}",
     )
 
     # Save to file
-    with open(f"dailyhtml/{file_name}", "w", encoding="utf-8") as file:
+    with open(f"html/daily-{file_name}", "w", encoding="utf-8") as file:
         file.write(rendered)
 
     # Move to next day

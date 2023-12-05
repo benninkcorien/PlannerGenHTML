@@ -1,0 +1,22 @@
+{% extends "./base.html" %}
+
+
+{% block content %}
+<h2 class="pagetitle">Yearly Calendar Page 1</h2>
+<div id="yearly">
+    <div class="leftside">
+        {% include "./month_1.html" %}
+        {% include "./month_2.html" %}
+        {% include "./month_3.html" %}
+       
+    </div>  
+    <div class="rightside">
+        {% include "./month_4.html" %}
+        {% include "./month_5.html" %}
+        {% include "./month_6.html" %}
+    </div>
+     
+</div>
+<div class="pagebreak"></div>
+{% endblock content %}
+    

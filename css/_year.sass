@@ -1,0 +1,43 @@
+@import vars
+h2.pagetitle 
+    text-align: center
+    font-size: 24px
+    line-height: 24px
+    font-family: "Noto Serif"
+    margin: 5px 0 0
+#yearly
+    display: flex
+    max-height: $pageheight
+    .leftside
+        width: 50% 
+    .rightside
+        width: 50% 
+        margin: 0
+        padding: 0
+        .lines 
+            $howmanylines: 24 
+            $container-height: $pageheight
+            height: 100%
+            padding-top: 12%
+            hr
+                border: 0
+                border-bottom: 1px solid #5e5e5e
+                margin: calc($container-height / $howmanylines) 
+                width: 100%
+
+    h2 
+        margin-left: 5%
+    table 
+        font-size: 11px
+        border-collapse: collapse
+        border: 1px solid #5e5e5e
+        margin-left: 5%
+        height: calc($pageheight * 0.09)
+        width: calc($pagewidth * 0.46)
+        td, th
+            padding: 4px 
+            text-align: center
+            vertical-align: middle
+            border: 1px solid #999999
+        tr:nth-child(even) 
+            background-color: #f2f2f2

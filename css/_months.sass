@@ -1,0 +1,33 @@
+#monthly
+    display: flex
+    .monthlyleft
+        width: 50% 
+    .monthlyright
+        width: 50% 
+        margin: 0
+        padding: 0
+        .lines 
+            $howmanylines: 24
+            $container-height: 17.5cm
+            height: 100%
+            padding-top: 12%
+            hr
+                border: 0
+                border-bottom: 1px solid #5e5e5e
+                margin: calc($container-height/$howmanylines) 
+                width: 6.3cm
+
+    h2 
+        margin-left: 5%
+    table 
+        font-size: 12px
+        border-collapse: collapse
+        border: 1px solid #5e5e5e
+        margin: 5%
+        width: 90%
+        td, th
+            padding: 4px 
+            text-align: center
+            vertical-align: middle
+        tr:nth-child(even) 
+            background-color: #f2f2f2
