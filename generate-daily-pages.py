@@ -8,10 +8,15 @@ startmonth = thevars.startmonth
 howmanymonths = thevars.howmanymonths
 start_date = datetime(startyear, startmonth, 1)
 end_date = start_date + relativedelta(months=howmanymonths) - timedelta(days=1)
+
 # Set up Jinja environment
 env = Environment(loader=FileSystemLoader("templates"))
 template = env.get_template("05daily/day.jinja")
 
+# Create an array of all dates
+allthedates = [
+    start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)
+]
 
 current_date = start_date
 while current_date <= end_date:
@@ -22,17 +27,19 @@ while current_date <= end_date:
     prev_date = (current_date - timedelta(days=1)).strftime("%Y-%m-%d.html")
     next_date = (current_date + timedelta(days=1)).strftime("%Y-%m-%d.html")
 
-    # Render the template with the current date
+    # Render the template with the current date and all dates
     rendered = template.render(
         current_date=current_date.strftime("%Y-%m-%d"),
         current_day=current_date.strftime("%A"),
         current_month=current_date.strftime("%B"),
         prev_link=f"daily-{prev_date}",
         next_link=f"daily-{next_date}",
+        allthedates=allthedates,
+        timedelta=timedelta,
     )
 
     # Save to file
-    with open(f"html/daily-{file_name}", "w", encoding="utf-8") as file:
+    with open(f"html/dailies.html", "w", encoding="utf-8") as file:
         file.write(rendered)
 
     # Move to next day

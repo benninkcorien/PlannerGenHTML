@@ -1,7 +1,7 @@
 .thecover {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 209mm;
   background-color: #e5e5f7;
   opacity: 0.8;
   background-color: #DFDBE5;
@@ -115,6 +115,72 @@ h2.pagetitle {
   size: 156mm 209mm;
   margin: 0mm;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.pagebreak {
+  -moz-column-break-before: page;
+       break-before: page;
+}
+
+#contents ul {
+  padding: 3em;
+}
+#contents ul li {
+  list-style-type: none;
+}
+#contents ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+#contents ul li a.h1 {
+  padding-left: 0;
+}
+#contents ul li a.h2 {
+  padding-left: 1em;
+}
+#contents ul li a::before {
+  content: target-text(attr(href));
+}
+#contents ul li a::after {
+  content: " " " " target-counter(attr(href), page);
+  font-kerning: none;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
 body {
   bg-color: #eaeaea;
   max-width: 156mm;

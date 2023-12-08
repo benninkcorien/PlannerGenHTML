@@ -41,7 +41,7 @@ def generate_calendar_html(startyear, startmonth, startday, howmanymonths):
         month_name = month_names[current_month - 1]
         month_calendar = cal.monthdatescalendar(current_year, current_month)
 
-        html = f"<h2>{month_name} {current_year}</h2>"
+        html = f"<div id='{month_name}{current_year}'></div><h2>{month_name} {current_year}</h2>"
         html += "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>"
 
         for week in month_calendar:

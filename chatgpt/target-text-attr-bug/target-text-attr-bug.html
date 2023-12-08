@@ -1,0 +1,28 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body { font-family: sans-serif; }
+
+h1 { text-transform: uppercase; break-before: page; }
+
+#contents ul { padding: 3em; }
+#contents ul li { list-style-type: none; }
+#contents ul li a { color: #000000; text-decoration: none; }
+#contents ul li a.h1 { padding-left: 0; }
+#contents ul li a.h2 { padding-left: 1em; }
+#contents ul li a::before { content: target-text(attr(href)); }
+#contents ul li a::after { content: ' ' leader(' . ') ' ' target-counter(attr(href), page); font-kerning: none; }
+</style>
+</head>
+<body>
+<div id="contents">
+<h1>Table of Contents</h1>
+<ul>
+<li><a class=h1 href="#Introduction"></a></li>
+</ul>
+</div>
+<h1 id="Introduction">Introduction</h1>
+<p>Lorem Ipsum</p>
+</body>
+</html>

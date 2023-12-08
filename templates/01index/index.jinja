@@ -1,12 +1,30 @@
-{% extends "./base.html" %}
-
+{% extends './base.html' %}
 
 {% block content %}
-<div class="theindex">
+<style>
+  #contents {
+    border: 1px solid purple;
+    margin: 1cm;
+  }
+</style>
+  <div class="theindex">
     <h1>INDEX</h1>
-    
-    <a href="monthly_page_1.html">Month 1</a>
-</div>
-<div class="pagebreak"></div>
-{% endblock content %}
-    
+    <section id="contents">
+      <ul>
+        <li>
+          <a href="#yearly1">Yearly 1</a>
+        </li>
+        <li>
+          <a href="#yearly2">Yearly 2</a>
+        </li>
+        <li>
+          <a href="#2024-12-31">Test Link Day</a>
+        </li>
+        <li>
+          <a href="#covertop">Cover</a>
+        </li>
+      </ul>
+
+  </div>
+  <div class="pagebreak"></div>
+{% endblock %}

@@ -7,6 +7,65 @@
 @page
     size: 156mm 209mm
     margin: 0mm
+
+// RESET
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+*
+  margin: 0
+  padding: 0
+
+body
+  line-height: 1.5
+  -webkit-font-smoothing: antialiased
+
+img, picture, video, canvas, svg
+  display: block
+  max-width: 100%
+
+input, button, textarea, select
+  font: inherit
+
+p, h1, h2, h3, h4, h5, h6
+  overflow-wrap: break-word
+
+h1
+  text-transform: uppercase
+
+.pagebreak
+  break-before: page
+
+#contents ul
+  padding: 3em
+
+  li
+    list-style-type: none
+
+    a
+      color: #000000
+      text-decoration: none
+
+      &.h1
+        padding-left: 0
+
+      &.h2
+        padding-left: 1em
+
+      &::before
+        content: target-text(attr(href))
+
+      &::after
+        content: ' ' ' ' target-counter(attr(href), page)
+        font-kerning: none
+
+
+#root, #__next
+  isolation: isolate
+
+
 body  
     bg-color: #eaeaea  
     max-width: $pagewidth

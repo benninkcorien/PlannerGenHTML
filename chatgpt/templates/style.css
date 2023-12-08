@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.cover img {
+    width: 100%;
+    height: auto;
+}
+
+.index {
+    text-align: center;
+}
+
+.index h1 {
+    font-size: 2em;
+}
+
+.index ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.index li {
+    margin: 10px 0;
+}
+
+.date {
+    text-align: center;
+}
+
+.date h1 {
+    font-size: 2em;
+}
+
+.date p {
+    font-size: 1.2em;
+}
