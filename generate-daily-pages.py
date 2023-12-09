@@ -18,29 +18,9 @@ allthedates = [
     start_date + timedelta(days=x) for x in range((end_date - start_date).days + 1)
 ]
 
-current_date = start_date
-while current_date <= end_date:
-    # Format date for filename
-    file_name = current_date.strftime("%Y-%m-%d.html")
+# Render the template with all dates
+rendered = template.render(allthedates=allthedates, timedelta=timedelta)
 
-    # Format dates for previous and next buttons
-    prev_date = (current_date - timedelta(days=1)).strftime("%Y-%m-%d.html")
-    next_date = (current_date + timedelta(days=1)).strftime("%Y-%m-%d.html")
-
-    # Render the template with the current date and all dates
-    rendered = template.render(
-        current_date=current_date.strftime("%Y-%m-%d"),
-        current_day=current_date.strftime("%A"),
-        current_month=current_date.strftime("%B"),
-        prev_link=f"daily-{prev_date}",
-        next_link=f"daily-{next_date}",
-        allthedates=allthedates,
-        timedelta=timedelta,
-    )
-
-    # Save to file
-    with open(f"html/dailies.html", "w", encoding="utf-8") as file:
-        file.write(rendered)
-
-    # Move to next day
-    current_date += timedelta(days=1)
+# Save to file
+with open("html/dailies.html", "w", encoding="utf-8") as file:
+    file.write(rendered)

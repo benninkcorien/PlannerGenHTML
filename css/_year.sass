@@ -1,15 +1,16 @@
 @import vars
+$leftmargin: 0.28cm
 h2.pagetitle 
-    text-align: center
+    text-align: left
     font-size: 24px
-    line-height: 24px
-    font-family: "Noto Serif"
-    margin: 5px 0 0
-#yearly
+    line-height: 24px 
+    padding: 0.4cm
+#yearly1, #yearly2
     display: flex
-    max-height: $pageheight
+    height: 100%
     .leftside
         width: 50% 
+        padding-left: 0.6cm
     .rightside
         width: 50% 
         margin: 0
@@ -26,14 +27,17 @@ h2.pagetitle
                 width: 100%
 
     h2 
-        margin-left: 5%
+        padding-left: $leftmargin
+        padding: 10px 0
+        font-size: 16px
     table 
         font-size: 11px
         border-collapse: collapse
         border: 1px solid #5e5e5e
-        margin-left: 5%
-        height: calc($pageheight * 0.09)
-        width: calc($pagewidth * 0.46)
+        padding-left: $leftmargin
+        padding-bottom: 0.5cm
+        height: calc($pageheight * 0.08)
+        width: calc($pagewidth * 0.4)
         td, th
             padding: 4px 
             text-align: center

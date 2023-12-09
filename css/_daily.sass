@@ -1,0 +1,103 @@
+.dailypage
+    width: 100%
+    height: 100%
+    .dateheader
+        height: 1.5cm
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        padding: 10px 5px
+        border-bottom: 1pt solid black
+        .leftpart 
+            display: flex
+            flex-direction: row
+            width: 10cm
+            .prevlink
+                padding-right: 10px
+                display: block
+            .prevlink svg, .nextlink svg
+                width: 1cm
+                height: 1cm
+                color: #888
+                display: block
+            .nextlink
+                display: block
+                padding-left: 10px
+            .dateblock 
+                display: flex
+                justify-content: center
+                width: 7cm
+                height: 1cm
+                .daynumber
+                    font-size: 24px
+                    padding-right: 0.5rem
+                    line-height: 0.75cm 
+                    display: block
+                .dayname
+                    font-size: 24px
+                    line-height: 0.75cm 
+                    display: block
+        .rightpart
+            width: 5cm 
+            .monthname
+                vertical-align: middle
+                position: relative
+                width: 100%
+                text-align: right
+                font-size: 20px
+                height: 1.5cm
+                padding-right: 0.6cm
+                
+                
+    .dailyschedule
+        display: flex 
+        flex-direction: row
+        justify-content: space-between
+        height: 18.5cm
+        padding-top: 5%
+        width: 100%
+        .dailyleft
+            width: 50%
+            height: 100%
+            padding-left: 0.6cm
+            table.hourlyschedule
+                width: 7cm 
+                border-collapse: collapse
+                border: 0
+                td
+                    border: 0.5pt solid black
+                    height: 0.55cm
+                    &[rowspan="2"]
+                        border-right: 0.5pt solid black
+                        width: 1cm
+                        padding-left: 0.2cm
+        .dailyright
+            width: 50%
+            height: 100%
+            padding-left: 0.6cm
+            justify-content: space-between
+            h4
+                padding-bottom: 0.3cm
+            .toppriorities
+                padding-bottom: 0.6cm
+                table.todo 
+                    width: 7cm
+                    border-collapse: collapse
+                    border: 0
+                    svg 
+                        height: 20px 
+                        width: 20px
+                    td 
+                        border: 0.5pt solid black
+                        &:first-of-type
+                            width: 0.6cm
+            .dailylines
+                display: flex
+                flex-direction: column
+                justify-content: space-around
+                height: 10cm
+                .pageline
+                    display: block
+                    width: 7cm
+                    min-height: 5px
+                    border-top: 0.5pt solid #000

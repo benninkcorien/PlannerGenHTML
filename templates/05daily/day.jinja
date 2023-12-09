@@ -1,17 +1,71 @@
-{% extends "./base.html" %} 
+{% extends './base.html' %}
 {% block content %}
   {% for date in allthedates %}
-    <div class="leftside">
+    {% set prev_date = date - timedelta(days = 1) %}
+    {% set next_date = date + timedelta(days = 1) %}
+    <div class="thepage">
       <div id="{{ date.strftime('%Y-%m-%d') }}"></div>
-      <h2>{{ date.strftime('%Y-%m-%d') }} - {{ date.strftime('%A') }} - {{ date.strftime('%B') }}</h2>
-      <div class="dailyschedule">
-        {% for _ in range(24) %}
-          <hr />
-        {% endfor %}
+      <div class="dailypage">
+        <div class="dateheader">
+          <div class="leftpart">
+            <a class="prevlink" href="#{{ prev_date.strftime('%Y-%m-%d') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <div class="dateblock">
+              <div class="daynumber">{{ date.strftime('%d') }}</div>
+              <div class="dayname">{{ date.strftime('%A') }}</div>
+            </div>
+            <a class="nextlink" href="#{{ next_date.strftime('%Y-%m-%d') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+          <div class="rightpart">
+            <div class="monthname">{{ date.strftime('%B') }}</div>
+          </div>
+        </div>
+        <div class="dailyschedule">
+          <div class="dailyleft">
+            <table class="hourlyschedule">
+              {% for hour in range(7, 22) %}
+                <tr>
+                  <td rowspan="2">{{ '%02d'|format(hour) }}</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+          <div class="dailyright">
+            <div class="toppriorities">
+              <h4>Top Priorities</h4>
+              <table class="todo">
+                {% for _ in range(8) %}
+                  <tr>
+                    <td>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z" />
+                      </svg>
+                    </td>
+                    <td></td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <h4>Notes</h4>
+            <div class="dailylines">
+              {% for _ in range(18) %}
+                <div class="pageline"></div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="#{{ (date - timedelta(days=1)).strftime('%Y-%m-%d') }}">Previous</a>
-      <a href="#{{ (date + timedelta(days=1)).strftime('%Y-%m-%d') }}">Next</a>
     </div>
-    <div class="pagebreak"></div>
   {% endfor %}
-{% endblock content %}
+{% endblock %}

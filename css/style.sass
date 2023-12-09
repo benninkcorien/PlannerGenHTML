@@ -1,6 +1,7 @@
 @import vars
 @import cover
 @import index
+@import daily
 @import months
 @import year
 
@@ -8,6 +9,14 @@
     size: 156mm 209mm
     margin: 0mm
 
+div.thepage 
+  size: 156mm 209mm 
+  height: 209mm !important
+  width: 156mm !important
+  margin: 0mm
+  padding: 0mm 
+  page-break-after: always   
+  overflow: hidden 
 // RESET
 *,
 *::before,
@@ -17,6 +26,8 @@
 *
   margin: 0
   padding: 0
+html
+  width: 100%
 
 body
   line-height: 1.5
@@ -35,9 +46,6 @@ p, h1, h2, h3, h4, h5, h6
 h1
   text-transform: uppercase
 
-.pagebreak
-  break-before: page
-
 #contents ul
   padding: 3em
 
@@ -47,12 +55,7 @@ h1
     a
       color: #000000
       text-decoration: none
-
-      &.h1
-        padding-left: 0
-
-      &.h2
-        padding-left: 1em
+ 
 
       &::before
         content: target-text(attr(href))
@@ -61,18 +64,12 @@ h1
         content: ' ' ' ' target-counter(attr(href), page)
         font-kerning: none
 
-
-#root, #__next
-  isolation: isolate
-
+ 
 
 body  
-    bg-color: #eaeaea  
-    max-width: $pagewidth
-    max-height: $pageheight    
+    bg-color: #eaeaea    
     color: black
-    font-family: "KievitOT-Medium", sans-serif
+    font-family: "Open Sans", sans-serif
     font-size: 14px
     line-height: 22px 
-.page-break 
-    page-break-before: always    
+
